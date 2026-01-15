@@ -25,12 +25,14 @@ jobs:
       - name: Deploy to MonsterASP
         uses: rasmusbuchholdt/simply-web-deploy@2.1.0
         with:
-          website-name: ${{ secrets.WEB_DEPLOY_USERNAME }}
-          server-computer-name: ${{ secrets.WEB_DEPLOY_SERVER }}
-          server-username: ${{ secrets.WEB_DEPLOY_USERNAME }}
+          # Use the 'Site' value from your image
+          website-name: 'site50778' 
+          
+          # Use the secret we just updated (or paste the full URL here to test)
+          server-computer-name: ${{ secrets.WEB_DEPLOY_SERVER }} 
+          
+          # Use the 'Login' value from your image
+          server-username: 'site50778' 
+          
           server-password: ${{ secrets.WEB_DEPLOY_PASSWORD }}
-          # -----------------------------------------------------------
-          # We now point to 'out' because that's where the compiled 
-          # version of your 'Pages' and logic now lives.
-          # -----------------------------------------------------------
           source-path: 'out'
