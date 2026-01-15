@@ -23,16 +23,10 @@ jobs:
         run: dotnet publish MetzgerProject/MetzgerProject.csproj -c Release -o out
 
       - name: Deploy to MonsterASP
-        uses: rasmusbuchholdt/simply-web-deploy@2.1.0
-        with:
-          # Use the 'Site' value from your image
-          website-name: 'site50778' 
-          
-          # Use the secret we just updated (or paste the full URL here to test)
-          server-computer-name: ${{ secrets.WEB_DEPLOY_SERVER }} 
-          
-          # Use the 'Login' value from your image
-          server-username: 'site50778' 
-          
-          server-password: ${{ secrets.WEB_DEPLOY_PASSWORD }}
-          source-path: 'out'
+        run: |
+          "C:\Program Files\IIS\Microsoft Web Deploy V3\msdeploy.exe" `
+          -verb:sync `
+          -source:contentPath='${{ github.workspace }}\out' `
+          -dest:contentPath='site50778',computerName='${{ secrets.WEB_DEPLOY_SERVER }}',userName='site50778',password='${{ secrets.WEB_DEPLOY_PASSWORD }}',authtype='Basic' `
+          -allowUntrusted `
+          -enableRule:AppOffline
