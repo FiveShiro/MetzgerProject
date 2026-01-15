@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Marci Metzger</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header id="navbar" class="navbar">
+        <div class="nav-inner container">
+
+            <div class="nav-dropdown">
+                <button class="dropdown-toggle" id="menuToggle" aria-label="Open menu">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="#letsmove">Let’s Move</a>
+                    <a href="#listings">Listings</a>
+                </div>
+            </div>
+
+            <a href="/Index" class="nav-logo-link" aria-label="Home">
+                <img src="~/images/titlename.png"
+                     alt="Marci Metzger Homes"
+                     class="nav-logo" />
+            </a>
+
+            <nav class="nav-links">
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    @RenderBody()
+
+    <footer class="site-footer">
+        <div class="footer-container">
+
+            <div class="footer-section footer-contact">
+                <img src="~/images/titlename.png" alt="Marci Metzger Homes" class="footer-logo" />
+                <p>
+                    <a href="tel:+206-919-6886">📞 206-919-6886</a><br />
+                    <a href="https://duckduckgo.com/?q=The+Ridge+Realty+Group&t=opera&iaxm=maps&bbox=-115.95584886127436%2C36.184455397401855%2C-115.95473463481939%2C36.18355607720752" target="_blank">
+                        3190 HW-160, Suite F, Pahrump, Nevada 89048, United States
+                    </a>
+                </p>
+            </div>
+
+            <div class="footer-section footer-links">
+                <h4>Quick Links</h4>
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#listings">Listings</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="footer-section footer-social">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="https://facebook.com"><i class="bi bi-facebook"></i></a>
+                    <a href="https://instagram.com"><i class="bi bi-instagram"></i></a>
+                    <a href="https://linkedin.com"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://yelp.com"><i class="bi bi-yelp"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Marci Metzger Homes. All Rights Reserved.</p>
+            <div class="legal-links">
+                <a href="/PrivacyPolicy">Privacy Policy</a>
+                <a href="/Terms">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById("navbar");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 80) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+
+    <script>
+        const toggle = document.getElementById("menuToggle");
+        const menu = document.getElementById("dropdownMenu");
+
+        toggle.addEventListener("click", (e) => {
+            e.stopPropagation();
+            menu.classList.toggle("open");
+            toggle.classList.toggle("open");
+        });
+
+        // Close when clicking outside
+        document.addEventListener("click", () => {
+            menu.classList.remove("open");
+        });
+    </script>
+
+    <script>
+        const track = document.getElementById("galleryTrack");
+        const prevBtn = document.getElementById("galleryPrev");
+        const nextBtn = document.getElementById("galleryNext");
+
+        const cardWidth = track.querySelector(".card").offsetWidth + 24;
+        const maxIndex = track.children.length - 3;
+
+        let index = 0;
+
+        nextBtn.addEventListener("click", () => {
+            if (index < maxIndex) {
+                index++;
+                track.style.transform = `translateX(-${index * cardWidth}px)`;
+            }
+        });
+
+        prevBtn.addEventListener("click", () => {
+            if (index > 0) {
+                index--;
+                track.style.transform = `translateX(-${index * cardWidth}px)`;
+            }
+        });
+    </script>
+</body>
+</html>

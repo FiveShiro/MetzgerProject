@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\background2.jpeg" />
+    <None Include="wwwroot\images\gallery\gallery1large.jpeg" />
+    <None Include="wwwroot\images\gallery\gallery1medium.jpeg" />
+    <None Include="wwwroot\images\gallery\gallery1small.jpeg" />
+    <None Include="wwwroot\images\gallery\gallery2large.jpeg" />
+    <None Include="wwwroot\images\gallery\gallery2small.jpeg" />
+    <None Include="wwwroot\images\gallery\gallery3large.jpeg" />
+    <None Include="wwwroot\images\gallery\gallery3medium.jpeg" />
+    <None Include="wwwroot\images\gallery\gallery3small.jpeg" />
+    <None Include="wwwroot\images\gallery\gallery6large.jpeg" />
+    <None Include="wwwroot\images\gallery\gallery7large.jpeg" />
+    <None Include="wwwroot\images\getitsold\getitsold1.jpeg" />
+    <None Include="wwwroot\images\getitsold\getitsold2.jpeg" />
+    <None Include="wwwroot\images\getitsold\getitsold3.jpeg" />
+    <None Include="wwwroot\images\herobg.jpg" />
+    <None Include="wwwroot\images\misc\spotlight.png" />
+    <None Include="wwwroot\images\realtorgroups\equalhousingopportunity.png" />
+    <None Include="wwwroot\images\realtorgroups\pahrump.jpeg" />
+    <None Include="wwwroot\images\realtorgroups\realtorbadge.jpeg" />
+    <None Include="wwwroot\images\realtorgroups\ridgerealty.png" />
+    <None Include="wwwroot\images\realtor\realtort.jpeg" />
+    <None Include="wwwroot\images\realtor\realtorw_365h_365.jpeg" />
+    <None Include="wwwroot\images\services\services1.jpeg" />
+    <None Include="wwwroot\images\services\services2.jpeg" />
+    <None Include="wwwroot\images\services\services3.jpeg" />
+    <None Include="wwwroot\images\titlename.png" />
+  </ItemGroup>
+
+</Project>
