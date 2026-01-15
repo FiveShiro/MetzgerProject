@@ -1,0 +1,36 @@
+name: Deploy to MonsterASP
+
+on:
+  push:
+    branches:
+      - master  # Change to 'main' if that is your branch name
+
+jobs:
+  deploy:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x' # Use 6.0.x, 7.0.x or 8.0.x based on your project
+
+      - name: Publish Website
+        # This compiles your code into a folder named 'out'
+        # It automatically generates the correct web.config and .dll files
+        run: dotnet publish MetzgerProject/MetzgerProject.csproj -c Release -o out
+
+      - name: Deploy to MonsterASP
+        uses: rasmusbuchholdt/simply-web-deploy@2.1.0
+        with:
+          website-name: ${{ secrets.WEB_DEPLOY_USERNAME }}
+          server-computer-name: ${{ secrets.WEB_DEPLOY_SERVER }}
+          server-username: ${{ secrets.WEB_DEPLOY_USERNAME }}
+          server-password: ${{ secrets.WEB_DEPLOY_PASSWORD }}
+          # -----------------------------------------------------------
+          # We now point to 'out' because that's where the compiled 
+          # version of your 'Pages' and logic now lives.
+          # -----------------------------------------------------------
+          source-path: 'out'
